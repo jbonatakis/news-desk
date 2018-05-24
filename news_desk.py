@@ -26,7 +26,7 @@ class News_desk():
         for i, article in enumerate(data['articles']):
             print('\n' + str(i+1) +  '. Title: ' +  article['title'])
             print(article['description'])
-            print('Link: ' + article['url'])
+            #print('Source: ' + article['source'])
             #url_list.clear()
             url_list.append(article['url'])# If refreshed, list grows over 20 items...clear() doesn't work??
 
