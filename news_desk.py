@@ -6,6 +6,7 @@ import requests
 import os
 import json
 import sys
+import webbrowser
 
 # Authenticate API. Key saved as environment variable
 key = str(os.environ['NEWSAPIKEY'])
@@ -16,6 +17,8 @@ url = ('https://newsapi.org/v2/top-headlines?'
 
 data = requests.get(url).json()
 
+url_list = []
+
 class News_desk():
 
     # Parse JSON and print Title, Description, and URL, then get next steps from user
@@ -24,11 +27,14 @@ class News_desk():
             print('\n' + str(i+1) +  '. Title: ' +  article['title'])
             print(article['description'])
             print('Link: ' + article['url'])
+            #url_list.clear()
+            url_list.append(article['url'])# If refreshed, list grows over 20 items...clear() doesn't work??
 
         # Prompt user for selection to determine next steps
         print("\nEnter 'r' to refresh the articles, or 'q' to quit the program \n")
 
-        selection = str(input('>> ')).lower()
+        choice = input('>> ')
+        selection = str(choice).lower()
 
         # Valid input commands
         refresh = ["r", "ref", "refresh"]
@@ -44,19 +50,34 @@ class News_desk():
         exit = ["e", "exit", "q", "quit"]
 
         while True:
-            if selection in refresh:
-                news.get_articles()
-            elif selection in exit:
-                sys.exit(0)
-            else:
+            try:
+                isinstance(int(selection), int)
+                news.open_link(int(selection))
                 news.try_again()
+            except ValueError:
+                if selection in refresh:
+                    news.get_articles()
+                elif selection in exit:
+                    sys.exit(0)
+                else:
+                    news.try_again()
 
 
     # Bounces back and forth between news.options() and news.try_again() until user selects valid command. Probably a better way to do this somehow.
     # Idea: limit number of incorrect commands. After 5? 10? quit program
     def try_again(self):
-        selection = str(input("\nThat is not a valid command. Please enter 'r' to refresh the articles, or 'q' to quit the program\n\n>> "))
+        selection = str(input("\nPlease enter 'r' to refresh the articles, or 'q' to quit the program\n\n>> "))
         news.options(selection)
+
+
+    def open_link(self, choice):
+        if choice <= len(url_list)+1:
+            counter = 0
+            while counter < 1:
+                webbrowser.open_new_tab(url_list[choice-1])
+                counter += 1
+        else:
+            news.try_again()
 
 news = News_desk()
 
