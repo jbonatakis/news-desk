@@ -6,7 +6,7 @@ To run the program, you'll need to get a (free) API key from: https://newsapi.or
 
 Then save the API key as an environment variable named `NEWSAPIKEY`
 
-`export NEWSAPIKEY=<your key>`
+`echo 'export NEWSAPIKEY=<your key>' >> ~/.bashrc`
 
 ### Requirements:
 
