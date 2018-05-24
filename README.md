@@ -8,6 +8,8 @@ Then save the API key as an environment variable named `NEWSAPIKEY`
 
 `echo 'export NEWSAPIKEY=<your key>' >> ~/.bashrc`
 
+`source ~/.bashrc`
+
 ### Requirements:
 
 * Python 3.5.2 or higher
