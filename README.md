@@ -6,7 +6,15 @@ To run the program, you'll need to get a (free) API key from: https://newsapi.or
 
 Then save the API key as an environment variable named `NEWSAPIKEY`
 
-`echo 'export NEWSAPIKEY=<your key>' >> ~/.bashrc && source ~/.bashrc`
+`echo 'export NEWSAPIKEY=<your key>' >> ~/.bashrc && source ~/.bashrci`
+
+Alternately, replace this line in the script:
+
+`key = str(os.environ['NEWSAPIKEY'])`
+
+with this line:
+
+`key = <your key>`
 
 ### Requirements:
 
