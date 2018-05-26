@@ -7,6 +7,7 @@ import os
 import json
 import sys
 import webbrowser
+import pyperclip
 
 # Authenticate API. Key saved as environment variable
 key = str(os.environ['NEWSAPIKEY'])
@@ -21,17 +22,16 @@ url_list = []
 
 class News_desk():
 
-    # Parse JSON and print Title, Description, and URL, then get next steps from user
+    # Parse JSON and print Title, Description, and source, then get next steps from user
     def get_articles(self):
         for i, article in enumerate(data['articles']):
             print('\n' + str(i+1) +  '. Title: ' +  article['title'])
             print(article['description'])
-            #print('Source: ' + article['source'])
-            #url_list.clear()
+            print('Source: ' + article['source']['name'])
             url_list.append(article['url'])# If refreshed, list grows over 20 items...clear() doesn't work??
 
         # Prompt user for selection to determine next steps
-        print("\nEnter 'r' to refresh the articles, or 'q' to quit the program \n")
+        print("\nEnter 'r' to refresh the articles, or 'q' to quit the program. \nEnter an article number to open it in your browser.\n")
 
         choice = input('>> ')
         selection = str(choice).lower()
@@ -74,6 +74,7 @@ class News_desk():
         if choice <= len(url_list)+1:
             counter = 0
             while counter < 1:
+                pyperclip.copy(url_list[choice-1])
                 webbrowser.open_new_tab(url_list[choice-1])
                 counter += 1
         else:
@@ -83,8 +84,3 @@ news = News_desk()
 
 if __name__ == "__main__":
     news.get_articles()
-
-
-
-
-
