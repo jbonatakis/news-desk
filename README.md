@@ -23,7 +23,7 @@ Alternately, replace this line in the script:
 
 with this line:
 
-`key = <your key>`
+`key = "<your key>"`
 
 
 ### Features
