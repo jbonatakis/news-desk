@@ -3,7 +3,7 @@
 A small program that lets you browse news through the command line.
 
 
-### Requirements:
+### Requirements
 
 * Python 3.5.2 or higher
 * pyperclip 1.6.1
