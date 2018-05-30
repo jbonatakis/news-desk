@@ -32,7 +32,7 @@ class News_desk():
             else:
                 print(article['description'])
             print('Source: ' + article['source']['name'])
-            url_list.append(article['url'])# If refreshed, list grows over 20 items...clear() doesn't work??
+            url_list.append(article['url'])
 
         # Prompt user for selection to determine next steps
         print("\nEnter 'r' to refresh the articles, or 'q' to quit the program. \nEnter an article number to open it in your browser.\n")
@@ -60,6 +60,7 @@ class News_desk():
                 news.try_again()
             except ValueError:
                 if selection in refresh:
+                    url_list.clear()
                     news.get_articles()
                 elif selection in exit:
                     sys.exit(0)
