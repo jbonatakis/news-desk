@@ -7,9 +7,9 @@ A small program that lets you browse news through the command line.
 
 ### Requirements
 
-* Python 3.5.2 or higher
-* pyperclip 1.6.1
-
+* Python 3.3 or higher
+* pyperclip 
+* termcolor
 
 ### Getting Started
 

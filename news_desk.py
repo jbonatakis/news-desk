@@ -9,6 +9,7 @@ import json
 import sys
 import webbrowser
 import pyperclip
+from termcolor import colored, cprint
 
 # Authenticate API. Key saved as environment variable
 key = str(os.environ['NEWSAPIKEY'])
@@ -26,8 +27,8 @@ class News_desk():
     # Parse JSON and print Title, Description, and source, then get next steps from user
     def get_articles(self):
         for i, article in enumerate(data['articles']):
-            print('\n' + str(i+1) +  '. Title: ' +  article['title'])
-            if article['description'] == '' or article['description'] in ['None', 'none']:
+            cprint('\n' + str(i+1) +  '. Title: ' +  article['title'], attrs=['bold'])
+            if len(str(article['description'])) < 5:# == '' or article['description'] in ['None', 'none']:
                 pass
             else:
                 print(article['description'])
