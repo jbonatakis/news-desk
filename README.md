@@ -2,6 +2,8 @@
 
 A small program that lets you browse news through the command line.
 
+![news-desk](https://raw.githubusercontent.com/jbonatakis/news-desk/master/news.png)
+
 
 ### Requirements
 
@@ -23,7 +25,7 @@ Alternately, replace this line in the script:
 
 with this line:
 
-`key = <your key>`
+`key = "<your key>"`
 
 
 ### Features
