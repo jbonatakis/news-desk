@@ -2,7 +2,7 @@
 
 A small program that lets you browse news through the command line.
 
-![news-desk](https://raw.githubusercontent.com/jbonatakis/news-desk/master/news.png)
+![news-desk](https://raw.githubusercontent.com/jbonatakis/news-desk/master/images/news-desk-example.png)
 
 
 ### Requirements
