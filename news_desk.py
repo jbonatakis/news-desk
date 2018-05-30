@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Author: Jack Bonatakis
 # Date: 24 May 2018
 # Title: news-desk: a command line news client
