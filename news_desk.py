@@ -26,7 +26,10 @@ class News_desk():
     def get_articles(self):
         for i, article in enumerate(data['articles']):
             print('\n' + str(i+1) +  '. Title: ' +  article['title'])
-            print(article['description'])
+            if article['description'] == '' or article['description'] in ['None', 'none']:
+                pass
+            else:
+                print(article['description'])
             print('Source: ' + article['source']['name'])
             url_list.append(article['url'])# If refreshed, list grows over 20 items...clear() doesn't work??
 
@@ -66,7 +69,7 @@ class News_desk():
     # Bounces back and forth between news.options() and news.try_again() until user selects valid command. Probably a better way to do this somehow.
     # Idea: limit number of incorrect commands. After 5? 10? quit program
     def try_again(self):
-        selection = str(input("\nPlease enter 'r' to refresh the articles, or 'q' to quit the program\n\n>> "))
+        selection = str(input("\nPlease enter 'r' to refresh the articles, or 'q' to quit the program.\nEnter an article number to open it in your browser.\n\n>> "))
         news.options(selection)
 
 
