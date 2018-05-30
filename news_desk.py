@@ -18,7 +18,7 @@ url = ('https://newsapi.org/v2/top-headlines?'
         'country=us&'
         'apiKey=' + key)
 
-data = requests.get(url).json()
+#data = requests.get(url).json()
 
 url_list = []
 
@@ -26,6 +26,7 @@ class News_desk():
 
     # Parse JSON and print Title, Description, and source, then get next steps from user
     def get_articles(self):
+        data = requests.get(url).json()
         for i, article in enumerate(data['articles']):
             cprint('\n' + str(i+1) +  '. Title: ' +  article['title'], attrs=['bold'])
             if len(str(article['description'])) < 5:# == '' or article['description'] in ['None', 'none']:
@@ -56,9 +57,12 @@ class News_desk():
 
         while True:
             try:
-                isinstance(int(selection), int)
-                news.open_link(int(selection))
-                news.try_again()
+                if isinstance(int(selection), int):
+                    if int(selection) <= len(url_list) and int(selection) > 0:
+                        news.open_link(int(selection))
+                        news.try_again()
+                    else:
+                        news.try_again()
             except ValueError:
                 if selection in refresh:
                     url_list.clear()
