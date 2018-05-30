@@ -28,7 +28,7 @@ class News_desk():
     def get_articles(self):
         data = requests.get(url).json()
         for i, article in enumerate(data['articles']):
-            cprint('\n' + str(i+1) +  '. Title: ' +  article['title'], attrs=['bold'])
+            cprint('\n' + str(i+1) +  '. Title: ' +  article['title'],'blue', attrs=['bold'])
             if len(str(article['description'])) < 5:# == '' or article['description'] in ['None', 'none']:
                 pass
             else:
