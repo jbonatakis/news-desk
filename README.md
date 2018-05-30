@@ -11,6 +11,8 @@ A small program that lets you browse news through the command line.
 * pyperclip 
 * termcolor
 
+These requirements can be installed together by running `pip install -r requirements.txt` or `pip3 install -r requirements.txt` depending on your system. As stated above, this program requires Python 3.3 or greater.
+
 ### Getting Started
 
 To run the program, you'll need to get a (free) API key from: https://newsapi.org/
