@@ -11,13 +11,25 @@ A small program that lets you browse news through the command line.
 * pyperclip 
 * termcolor
 
-These requirements can be installed together by running `pip install -r requirements.txt` or `pip3 install -r requirements.txt` depending on your system. As stated above, this program requires Python 3.3 or greater.
+These requirements can be installed together by running 
+
+`pip install -r requirements.txt`
+
+or 
+
+`pip3 install -r requirements.txt` 
+
+depending on your system. As stated above, this program requires Python 3.3 or greater.
 
 ### Getting Started
 
-To run the program, you'll need to get a (free) API key from: https://newsapi.org/
+First, clone the repository:
 
-Then save the API key as an environment variable named `NEWSAPIKEY`
+`git clone https://github.com/jbonatakis/news-desk.git`
+
+Then, register and get a (free) API key from: https://newsapi.org/
+
+Save the API key as an environment variable named `NEWSAPIKEY`
 
 `echo 'export NEWSAPIKEY=<your key>' >> ~/.bashrc && source ~/.bashrc`
 
@@ -29,6 +41,9 @@ with this line:
 
 `key = "<your key>"`
 
+Finally, run:
+
+`python3 news_desk.py`
 
 ### Features
 
