@@ -27,7 +27,7 @@ First, clone the repository:
 
 `git clone https://github.com/jbonatakis/news-desk.git`
 
-Then, register and get a (free) API key from: https://newsapi.org/
+Then, register and get a (free) API key from: [https://newsapi.org/](https://newsapi.org/)
 
 Save the API key as an environment variable named `NEWSAPIKEY`
 
