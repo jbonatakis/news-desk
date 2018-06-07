@@ -69,7 +69,7 @@ class News_desk():
         exit = ["e", "exit", "q", "quit"]
 
         while True:
-            if sys.argv[1] == "-c":
+            if "-c" in sys.argv:
                 try:
                     if isinstance(int(selection), int):
                         if int(selection) <= len(url_list) and int(selection) > 0:
