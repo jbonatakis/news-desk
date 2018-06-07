@@ -53,6 +53,7 @@ Finally, run:
 * Type `r` or `refresh` to update the list of articles. This command is not case sensitive.
 * To exit the program and return to your command line, type `e`, `exit`, `q`, or `quit`. Again, this is not case sensitive.
 
+* If you run the program with the flag `-c`, then selecting an article will not open it in the browser, but instead show you the text on the command line.
 
 ### Contributing
 
