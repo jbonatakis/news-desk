@@ -10,6 +10,7 @@ import sys
 import webbrowser
 import pyperclip
 from termcolor import colored, cprint
+from newspaper import Article
 
 # Authenticate API. Key saved as environment variable
 key = str(os.environ['NEWSAPIKEY'])
@@ -56,21 +57,39 @@ class News_desk():
         exit = ["e", "exit", "q", "quit"]
 
         while True:
-            try:
-                if isinstance(int(selection), int):
-                    if int(selection) <= len(url_list) and int(selection) > 0:
-                        news.open_link(int(selection))
-                        news.try_again()
+            if sys.argv[1] == "-c":
+                try:
+                    if isinstance(int(selection), int):
+                        if int(selection) <= len(url_list) and int(selection) > 0:
+                            news.get_text(int(selection))
+                            news.try_again()
+                        else:
+                            news.try_again()
+                except ValueError:
+                    if selection in refresh:
+                        url_list.clear()
+                        news.get_articles()
+                    elif selection in exit:
+                        sys.exit(0)
                     else:
                         news.try_again()
-            except ValueError:
-                if selection in refresh:
-                    url_list.clear()
-                    news.get_articles()
-                elif selection in exit:
-                    sys.exit(0)
-                else:
-                    news.try_again()
+
+            else:
+                try:
+                    if isinstance(int(selection), int):
+                        if int(selection) <= len(url_list) and int(selection) > 0:
+                            news.open_link(int(selection))
+                            news.try_again()
+                        else:
+                            news.try_again()
+                except ValueError:
+                    if selection in refresh:
+                        url_list.clear()
+                        news.get_articles()
+                    elif selection in exit:
+                        sys.exit(0)
+                    else:
+                        news.try_again()
 
 
     # Bounces back and forth between news.options() and news.try_again() until user selects valid command. Probably a better way to do this somehow.
@@ -89,6 +108,18 @@ class News_desk():
                 counter += 1
         else:
             news.try_again()
+
+    def get_text(self, choice):
+        if choice <= len(url_list)+1:
+            counter = 0
+            while counter < 1:
+                article = Article(url_list[choice-1])
+                article.download()
+                article.parse()
+                print(article.text)
+                counter += 1
+
+
 
 news = News_desk()
 
