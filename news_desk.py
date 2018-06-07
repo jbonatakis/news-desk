@@ -12,6 +12,18 @@ import pyperclip
 from termcolor import colored, cprint
 from newspaper import Article
 
+class color:
+    PURPLE = '\033[95m'
+    CYAN = '\033[96m'
+    DARKCYAN = '\033[36m'
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    END = '\033[0m'
+
 # Authenticate API. Key saved as environment variable
 key = str(os.environ['NEWSAPIKEY'])
 
@@ -38,7 +50,7 @@ class News_desk():
             url_list.append(article['url'])
 
         # Prompt user for selection to determine next steps
-        print("\nEnter 'r' to refresh the articles, or 'q' to quit the program. \nEnter an article number to open it in your browser.\n")
+        print(color.GREEN + color.BOLD +"\nEnter 'r' to refresh the articles, or 'q' to quit the program. \nEnter an article number to open it in your browser.\n" + color.END)
 
         choice = input('>> ')
         selection = str(choice).lower()
@@ -61,6 +73,7 @@ class News_desk():
                 try:
                     if isinstance(int(selection), int):
                         if int(selection) <= len(url_list) and int(selection) > 0:
+                            print("\n")
                             news.get_text(int(selection))
                             news.try_again()
                         else:
@@ -78,6 +91,7 @@ class News_desk():
                 try:
                     if isinstance(int(selection), int):
                         if int(selection) <= len(url_list) and int(selection) > 0:
+                            print("\n")
                             news.open_link(int(selection))
                             news.try_again()
                         else:
@@ -95,7 +109,7 @@ class News_desk():
     # Bounces back and forth between news.options() and news.try_again() until user selects valid command. Probably a better way to do this somehow.
     # Idea: limit number of incorrect commands. After 5? 10? quit program
     def try_again(self):
-        selection = str(input("\nPlease enter 'r' to refresh the articles, or 'q' to quit the program.\nEnter an article number to open it in your browser.\n\n>> "))
+        selection = str(input(color.GREEN + color.BOLD +"\nPlease enter 'r' to refresh the articles, or 'q' to quit the program.\nEnter an article number to open it in your browser." + color.END + "\n\n>> "))
         news.options(selection)
 
 
@@ -116,6 +130,7 @@ class News_desk():
                 article = Article(url_list[choice-1])
                 article.download()
                 article.parse()
+                print(color.BLUE + color.BOLD + article.title + color.END)
                 print(article.text)
                 counter += 1
 
