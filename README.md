@@ -1,6 +1,6 @@
 # News Desk
 
-A small program that lets you browse news through the command line.
+A small program that lets you read news through the command line.
 
 ![news-desk](https://raw.githubusercontent.com/jbonatakis/news-desk/master/images/news-desk-screenshot.png)
 
@@ -10,7 +10,8 @@ A small program that lets you browse news through the command line.
 * Python 3.3 or higher
 * pyperclip 
 * termcolor
-
+* newspaper3k
+*
 These requirements can be installed together by running 
 
 `pip install -r requirements.txt`
@@ -29,31 +30,20 @@ First, clone the repository:
 
 Then, register and get a (free) API key from: [https://newsapi.org/](https://newsapi.org/)
 
-Save the API key as an environment variable named `NEWSAPIKEY`
-
-`echo 'export NEWSAPIKEY=<your key>' >> ~/.bashrc && source ~/.bashrc`
-
-Alternately, replace this line in the script:
-
-`key = str(os.environ['NEWSAPIKEY'])`
-
-with this line:
-
-`key = "<your key>"`
-
-Finally, run:
+Run the program:
 
 `python3 news_desk.py`
+
+This will prompt you to enter your API key, which will be saved in a file named `key` and read to validate your access to the API each time News Desk is run.
 
 ### Features
 
 * News Desk grabs top headlines from all major U.S. news outlets
-* To open an article, type the article number and press `Enter`
-  * Note: this will also copy the article URL to your cliboard. Some websites, such as the New York Times and Washington Post, have soft paywalls. If the article is opened in your browser's incognito or safe mode, you can effectively avoid the paywall and access the article.
+* To view an article, type the article number and press `Enter`. This will print out the article text on the command line.
 * Type `r` or `refresh` to update the list of articles. This command is not case sensitive.
 * To exit the program and return to your command line, type `e`, `exit`, `q`, or `quit`. Again, this is not case sensitive.
 
-* If you run the program with the flag `-c`, then selecting an article will not open it in the browser, but instead show you the text on the command line.
+* If you run the program with the flag `-b`, then selecting an article will open it in the browser and copy the article URL to your clipboard.
 
 ### Contributing
 
