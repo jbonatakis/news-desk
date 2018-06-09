@@ -36,7 +36,7 @@ Run the program:
 
 `python3 news_desk.py`
 
-This will prompt you to enter your API key, which will be saved in a file named `key` and read to validate your access to the API each time News Desk is run.
+This will prompt you to enter your API key, which will be saved in a file named `key` located in the `~/.nd_config/` directory and read to validate your access to the API each time News Desk is run.
 
 ### Features
 
