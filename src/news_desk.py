@@ -26,18 +26,18 @@ class color:
     UNDERLINE = '\033[4m'
     END = '\033[0m'
 
-# Check for api key, saved in `key` file. If doesn't exist, prompt for key and save in `key` file
+# Check for api key, saved in `~/.nd_config/key` file. If doesn't exist, prompt for key and save in `~/.nd_config/key` file
+home = os.path.expanduser('~')
 try:
-    key_file = open('key', 'r')
+    key_file = open(home + '/.nd_config/key', 'r')
     key = key_file.readline()
 except FileNotFoundError:
     set_key.set_key()
-    key_file = open('key', 'r')
+    key_file = open(home + '/.nd_config/key', 'r')
     key = key_file.readline()
 
 url = ('https://newsapi.org/v2/top-headlines?country=us&apiKey=' + key)
 
-#data = requests.get(url).json()
 
 url_list = []
 
