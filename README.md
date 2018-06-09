@@ -11,7 +11,7 @@ A small program that lets you read news through the command line.
 * pyperclip 
 * termcolor
 * newspaper3k
-*
+
 These requirements can be installed together by running 
 
 `pip install -r requirements.txt`
