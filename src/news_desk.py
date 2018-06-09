@@ -54,8 +54,8 @@ class News_desk():
 			key_file = open(home + '/.nd_config/key', 'r')
 			key = key_file.readline()
 
-		url = ('https://newsapi.org/v2/top-headlines?country=us&apiKey=' + key)
-		news.get_articles(url)
+		self.url = ('https://newsapi.org/v2/top-headlines?country=us&apiKey=' + key)
+		news.get_articles(self.url)
 
 	# Parse JSON and print Title, Description, and source, then get next steps from user
 	def get_articles(self, url):
@@ -109,7 +109,7 @@ class News_desk():
 				except ValueError:
 					if selection in refresh:
 						url_list.clear()
-						news.get_articles()
+						news.get_articles(self.url)
 					elif selection in exit:
 						sys.exit(0)
 					else:
@@ -126,7 +126,7 @@ class News_desk():
 				except ValueError:
 					if selection in refresh:
 						url_list.clear()
-						news.get_articles()
+						news.get_articles(self.url)
 					elif selection in exit:
 						sys.exit(0)
 					else:
