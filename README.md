@@ -59,3 +59,4 @@ If you would like to contribute to the project, feel free to open a pull request
 - [ ] Add search functionality
 - [ ] Incorporate SMMRY API
 - [ ] Allow user to specify number of articles to display
+- [ ] Automatically encrypt API key while stored and decrypt before use
