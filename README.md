@@ -2,7 +2,9 @@
 
 A small program that lets you read news through the command line.
 
-![news-desk](https://raw.githubusercontent.com/jbonatakis/news-desk/master/images/news-desk-screenshot.png)
+![news-desk](https://raw.githubusercontent.com/jbonatakis/news-desk/master/images/news-desk-6-9-2018-1.png)
+![news-desk](https://raw.githubusercontent.com/jbonatakis/news-desk/master/images/news-desk-6-9-2018-2.png)
+![news-desk](https://raw.githubusercontent.com/jbonatakis/news-desk/master/images/news-desk-6-9-2018-3.png)
 
 
 ### Requirements
