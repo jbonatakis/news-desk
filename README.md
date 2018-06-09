@@ -53,9 +53,9 @@ If you would like to contribute to the project, feel free to open a pull request
 
 ### To-Do
 
--[x] Open articles in browser with `-b` flag
--[x] Copy URL to clipboard when opening article in browser
--[x] Show article text on command line by default
--[ ] Add search functionality
--[ ] Incorporate SMMRY API
--[ ] Allow user to specify number of articles to display
+- [x] Open articles in browser with `-b` flag
+- [x] Copy URL to clipboard when opening article in browser
+- [x] Show article text on command line by default
+- [ ] Add search functionality
+- [ ] Incorporate SMMRY API
+- [ ] Allow user to specify number of articles to display
